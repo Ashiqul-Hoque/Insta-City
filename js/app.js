@@ -29,8 +29,9 @@ const reportPost = (id) => {
 };
 
 const displayContent = (text) => {
+  console.log(text);
   return text.length < 30
-    ? "text"
+    ? text
     : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
@@ -55,7 +56,7 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
-  console.log(post.comments[0]);
+  console.log(post);
   const div = document.createElement("article");
   div.classList.add("post");
   div.innerHTML = `
@@ -160,7 +161,7 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
-  posts.forEach((post) => {
+  reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
   });
